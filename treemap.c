@@ -154,7 +154,7 @@ Pair * nextTreeMap(TreeMap * tree) {
 }
 
 Pair * upperBound(TreeMap * tree, void* key) {
-    /*tree->current = tree->root;
+    tree->current = tree->root;
     TreeNode *ub_node = tree->current;
 
     while( tree->current != NULL ){
@@ -168,33 +168,7 @@ Pair * upperBound(TreeMap * tree, void* key) {
     }
 
     if(ub_node != NULL) return ub_node->pair;
-    else return firstTreeMap(tree);*/
-
-  if(tree->root == NULL) return NULL; // árbol vacío
-    
-    TreeNode* current = tree->root;
-    TreeNode* ub_node = NULL;
-    
-    while(current != NULL){
-        if(is_equal(tree, key, current->pair->key)){ // encontramos el nodo con clave key
-            return current->pair;
-        }
-        else if(tree->lower_than(key, current->pair->key)){ // key es menor que la clave del nodo actual, buscar en el subárbol izquierdo
-            ub_node = current;
-            current = current->left;
-        }
-        else{ // key es mayor que la clave del nodo actual, buscar en el subárbol derecho
-            current = current->right;
-        }
-    }
-    
-    // si llegamos aquí, no se encontró un nodo con clave igual a key, devolver el par del nodo ub_node
-    if(ub_node != NULL){
-        return ub_node->pair;
-    }
-    else{ // si ub_node es NULL, devolver el primer par del mapa (el menor)
-        return firstTreeMap(tree);
-    }
+    return NULL;
 }
 
 void eraseTreeMap(TreeMap * tree, void* key){
