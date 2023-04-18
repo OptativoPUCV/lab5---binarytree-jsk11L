@@ -125,7 +125,8 @@ void removeNode(TreeMap * tree, TreeNode* node) {
 }
 
 Pair * firstTreeMap(TreeMap * tree) {
-    return minimum(tree->root);
+    TreeNode* primero = minimum(tree->root);
+    return primero->pair;
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
