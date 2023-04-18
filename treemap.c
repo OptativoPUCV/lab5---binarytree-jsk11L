@@ -130,8 +130,27 @@ Pair * firstTreeMap(TreeMap * tree) {
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
-    tree->current = tree->current->right;
-    return tree->current->pair;
+    if (tree->current == NULL) return NULL;
+
+    if (tree->current->right != NULL) {
+        TreeNode * current = tree->current->right;
+        while (current->left != NULL) {
+            current = current->left;
+        }
+
+        tree->current = current;
+        return current->pair;
+    }
+  
+    TreeNode * parent = tree->current->parent;
+    while (parent != NULL && tree->current == parent->right) {
+        tree->current = parent;
+        parent = parent->parent;
+    }
+  
+    tree->current = parent;
+    if (parent == NULL) return NULL;
+    return parent->pair;
 }
 
 Pair * upperBound(TreeMap * tree, void* key) {
