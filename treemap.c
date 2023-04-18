@@ -169,7 +169,8 @@ Pair * upperBound(TreeMap * tree, void* key) {
       else tree->current = tree->current->right;
     }
 
-    return ub_node->pair;
+    if(ub_node != NULL) return ub_node->pair;
+    return NULL;
 }
 
 void eraseTreeMap(TreeMap * tree, void* key){
