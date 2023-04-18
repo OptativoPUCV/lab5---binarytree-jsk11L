@@ -168,7 +168,7 @@ Pair * upperBound(TreeMap * tree, void* key) {
     }
 
     if(ub_node != NULL) return ub_node->pair;
-    else return firstTreeNode(tree);
+    else return firstTreeMap(tree);
 }
 
 void eraseTreeMap(TreeMap * tree, void* key){
