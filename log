@@ -96,3 +96,9 @@ treemap.c:86:83: error: expected ‘;’ before ‘else’
       |         ~~~~                                                                       
 Compilation failed
 cffd7bb
+Tue 18 Apr 2023 04:42:20 AM UTC: 
+ treemap.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+ tests:  12|6
+total_score: 15/70
+b41ed4d
