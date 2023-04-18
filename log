@@ -221,3 +221,20 @@ Tue 18 Apr 2023 05:25:20 AM UTC:
  tests:  20|2
 total_score: 45/70
 6c93356
+Tue 18 Apr 2023 05:26:35 AM UTC: 
+ treemap.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+treemap.c: In function ‘nextTreeMap’:
+treemap.c:133:41: error: expected ‘;’ before ‘return’
+  133 |     tree->current = tree->current->right
+      |                                         ^
+      |                                         ;
+  134 |     return tree->current->pair;
+      |     ~~~~~~                               
+treemap.c:135:1: error: control reaches end of non-void function [-Werror=return-type]
+  135 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+6ea8ba0

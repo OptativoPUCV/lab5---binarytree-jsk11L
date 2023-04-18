@@ -130,7 +130,8 @@ Pair * firstTreeMap(TreeMap * tree) {
 }
 
 Pair * nextTreeMap(TreeMap * tree) {
-    return NULL;
+    tree->current = tree->current->right
+    return tree->current->pair;
 }
 
 Pair * upperBound(TreeMap * tree, void* key) {
