@@ -51,7 +51,7 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
         if(is_equal(tree,tree->current,key) == 1) return tree->current->pair;
         else{
             if(map->lower_than(tree->current,key) == 1) tree->current = tree->current->left;
-            else tree->current = tree->current->right
+            else tree->current = tree->current->right;
         }
     }
     
