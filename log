@@ -316,3 +316,18 @@ Tue 18 Apr 2023 06:03:26 AM UTC:
  tests:  28|1
 total_score: 65/70
 713dc39
+Tue 18 Apr 2023 06:04:33 AM UTC: 
+ treemap.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+In file included from test.c:4:
+treemap.c: In function ‘upperBound’:
+treemap.c:171:17: error: implicit declaration of function ‘firstTreeNode’; did you mean ‘firstTreeMap’? [-Werror=implicit-function-declaration]
+  171 |     else return firstTreeNode(tree);
+      |                 ^~~~~~~~~~~~~
+      |                 firstTreeMap
+treemap.c:171:17: error: returning ‘int’ from a function with return type ‘Pair *’ makes pointer from integer without a cast [-Werror=int-conversion]
+  171 |     else return firstTreeNode(tree);
+      |                 ^~~~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+c4501f3
