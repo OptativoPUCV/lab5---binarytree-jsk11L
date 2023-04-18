@@ -59,6 +59,19 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 }
 
 void insertTreeMap(TreeMap * tree, void* key, void * value) {
+  TreeNode *nuevoNodo = createTreeNode(key,value);
+  tree->current = tree->root;
+
+  while(tree->current != NULL){
+        if(is_equal(tree,tree->current->pair->key,nuevoNodo->pair->key) == 1) return;
+        else{
+            if(tree->lower_than(tree->current->pair->key,nuevoNodo->pair->key) == 0) tree->current = tree->current->left;
+            else tree->current = tree->current->right;
+        }
+    }
+  tree->current = nuevoNodo;
+  if(tree->current->left != NULL) tree->current->left->right = nuevoNodo;
+  else tree->current->right->left = nuevoNodo;
 
 }
 
