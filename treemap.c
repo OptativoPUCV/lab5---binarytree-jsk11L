@@ -142,19 +142,30 @@ Pair * nextTreeMap(TreeMap * tree) {
         return current->pair;
     }
   
-    TreeNode * parent = tree->current->parent;
-    while (parent != NULL && tree->current == parent->right) {
-        tree->current = parent;
-        parent = parent->parent;
+    TreeNode *padre = tree->current->parent;
+    while (padre != NULL && tree->current == padre->right) {
+        tree->current = padre;
+        padre = padre->parent;
     }
   
-    tree->current = parent;
-    if (parent == NULL) return NULL;
-    return parent->pair;
+    tree->current = padre;
+    if (padre == NULL) return NULL;
+    return padre->pair;
 }
 
 Pair * upperBound(TreeMap * tree, void* key) {
-    return NULL;
+    tree->current = tree->root;
+    TreeNode *ub_node = tree->current;
+
+    while( tree->lower_than(key, tree->current) == 1 ){
+
+      if(is_equal(tree,tree->current->pair->key, key) == 1) break;
+      else if(tree->lower_than(key, tree->current) == 1) tree->current = tree->current->left;
+      else tree->current = tree->current->right
+      ub_node = tree->current
+    }
+    
+    return ub_node->pair;
 }
 
 void eraseTreeMap(TreeMap * tree, void* key){
